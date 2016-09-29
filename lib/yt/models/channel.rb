@@ -207,6 +207,7 @@ module Yt
 
     ### CONTENT OWNER DETAILS ###
 
+      has_one :branding_setting
       has_one :content_owner_detail
 
       # @!attribute [r] content_owner
@@ -261,6 +262,9 @@ module Yt
         end
         if options[:content_owner_details]
           @content_owner_detail = ContentOwnerDetail.new data: options[:content_owner_details]
+        end
+        if options[:branding_settings]
+          @branding_setting = BrandingSetting.new data: options[:branding_settings]
         end
       end
 
