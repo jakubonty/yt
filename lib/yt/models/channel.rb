@@ -207,7 +207,6 @@ module Yt
 
     ### CONTENT OWNER DETAILS ###
 
-      has_one :branding_setting
       has_one :content_owner_detail
 
       # @!attribute [r] content_owner
@@ -229,6 +228,10 @@ module Yt
       def linked_at
         content_owner_detail.time_linked
       end
+
+    ### BRANDING SETTINGS ###
+
+      has_one :branding_setting
 
     ### ACTIONS (UPLOAD, UPDATE, DELETE) ###
 
