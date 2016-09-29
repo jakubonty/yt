@@ -23,7 +23,9 @@ module Yt
       end
 
       def branding_settings_params
-        {max_results: 50, part: 'brandingSettings', id: @parent.id}
+        params = {max_results: 50, part: 'brandingSettings'}
+        params[:id] = @parent.id if @parent
+        apply_where_params! params
       end
     end
   end
