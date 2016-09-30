@@ -168,11 +168,12 @@ module Yt
     # Send the request to the server, allowing ActiveSupport::Notifications
     # client to subscribe to the request.
     def send_http_request
+      http_client = Yt.configuration.http_client || Net::HTTP
       net_http_options = [uri.host, uri.port, use_ssl: true]
       ActiveSupport::Notifications.instrument 'request.yt' do |payload|
         payload[:method] = @method
         payload[:request_uri] = uri
-        payload[:response] = Net::HTTP.start(*net_http_options) do |http|
+        payload[:response] = http_client.start(*net_http_options) do |http|
           http.request http_request
         end
       end
