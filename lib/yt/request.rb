@@ -234,6 +234,7 @@ module Yt
     # then returns false. Useful to try the same request again multiple
     # times with a delay if a connection error occurs.
     def sleep_and_retry?(max_retries = 1)
+      return true
       @retries_so_far ||= -1
       @retries_so_far += 1
       if (@retries_so_far < max_retries)
