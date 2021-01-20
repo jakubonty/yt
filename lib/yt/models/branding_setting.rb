@@ -12,7 +12,7 @@ module Yt
         @data = options[:data] || {}
       end
 
-      def image_url(size = 'bannerImageUrl')
+      def image_url(size = 'bannerExternalUrl')
         image.fetch(size.to_s)
       end
 
